@@ -1,0 +1,162 @@
+:root{
+    /* Se crean variables para los colores */
+    --white: #FFFFFF;  
+    --black: #000000;
+    --very-ligth-pink: #c7c7c7;
+    --text-input-field: #f7f7f7;
+    --hospital-green: #ACD9B2;
+    /* Se crean variables para los tamaños de letra */
+    --sm: 14px; 
+    --md: 16px;
+    --lg: 18px;
+}
+body{
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* Se pone esta clase en el html en el elemento que deseamos que tenga esta propiedad de aparecer y desaparecer, en este caso el menu-desktop */
+.inactive{
+    display: none;
+}
+
+nav{
+    display: flex;
+    /* Para enviar al fondo el email y el carrito */
+    justify-content: space-between;
+    padding: 0 24px;
+    border-bottom: 1px solid var(--very-ligth-pink);
+}
+
+
+.menu{
+    /* Para que en la vista de desktop no se vea */
+    display: none;
+}
+
+.logo{
+    width: 100px;
+}
+
+.nav-left ul, .nav-rigth ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    /* Para que se alineen todos horizontalmente */
+    align-items: center;
+    height: 60px;
+}
+
+.nav-left {
+    display: flex;
+}
+
+.nav-left ul {
+    margin-left: 12px;
+}
+
+
+.nav-left ul li a{
+    text-decoration: none;
+    color: var(--very-ligth-pink);
+    border: 1px solid var(--white);
+    padding: 8px;
+    border-radius: 8px;
+}
+
+/* Para que al seleccionarlo con el mouse el color cambie */
+.nav-left ul li a:hover{
+    border: 1px solid var(--hospital-green);
+    color: var(--hospital-green);
+
+}
+
+.nav-email{
+    cursor: pointer;
+    color: var(--very-ligth-pink);
+    font-size: var(--sm);
+    margin-right: 12px ;
+}
+
+.nav-shopping-cart {
+    position: relative;
+}
+
+/* Para hacer la bolita con el numero encima del carrito de compras */
+.nav-shopping-cart div{
+    width: 16px;
+    height: 16px;
+    background-color: var(--hospital-green);
+    border-radius: 50%;
+    font-size: var(--sm);
+    font-weight: bold;
+    position: absolute;
+    top: -6px;
+    right: -3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.desktop-menu{
+    position: absolute;
+    /* Se baja del navbar para que quede bonito YO LO PROBÉ EN EL INSPECCIONAR*/
+    top: 68px;
+    /* Se mueve a la derecha exactamente donde lo quiero poner, YO LO PROBÉ EN EL INSPECCIONAR*/
+    right: 70px;
+    background: var(--white);
+    width: 100px;
+    height: auto;
+    border: 1px solid var(--very-ligth-pink);
+    border-radius: 6px;
+    padding: 20px 20px 0 20px;
+}
+
+.desktop-menu ul{
+    /* Para quitarle las viñetas */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.desktop-menu ul li{
+    text-align: end;
+    font-weight: bold;
+}
+
+/* Para estilizar el ultimo elemento de la lista se usa la pseudoclase lastchild */
+.desktop-menu ul li:last-child{
+    padding-top: 20px;
+    /* solamente ponerle la línea de arriba */
+    border-top: 1px solid var(--very-ligth-pink);
+}
+
+.desktop-menu ul li:last-child a{
+    color: var(--hospital-green);
+    font-size: var(--sm);
+}
+
+.desktop-menu ul li a{
+    color: var(--black);
+    font-size: var(--sm);
+    /* Para quitar el hipervinculo */
+    text-decoration: none;
+    /* Para poder aplicarle el margin se debe poner el display inline con caracteristicas de bloque, ya que el elemento de listas no tiene esas caracteristicas de la caja */
+    display: inline-block;
+    margin-bottom: 20px;
+
+}
+
+@media (max-width: 640px){
+    .menu{
+        display: block;
+    }
+
+    .nav-left ul {
+        display: none;
+    }
+
+    .nav-email{
+        display: none;
+    }
+}
