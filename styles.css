@@ -1,3 +1,8 @@
+"editor.tokenColorCustomizations": {
+    "[Monokai]"{  
+        "comments": "#d4922f"}
+},
+
 /* Estilos generales */
 :root{
     /* Se crean variables para los colores */
@@ -196,6 +201,108 @@ nav{
     color: var(--hospital-green) !important;
 }
 
+/* Aside (product detail y carrio) */
+.product-detail{
+    width: 360px;
+    padding: 24px;
+    /* Para poner todo centrado */
+    box-sizing: border-box;
+    /* Para poner todo a la derecha en el contenedor total */
+    position: absolute;
+    right: 0;
+}
+
+.title-container{
+    display: flex;
+}
+
+/* Para rotar la imagen de la flecha */
+.title-container img{
+    transform: rotate(180deg);
+    margin-right: 20px;
+}
+
+.title{
+    font-size: var(--lg);
+    font-weight: bold;
+
+}
+
+.myo-content{
+    display: flex;
+    flex-direction: column;
+}
+
+.shopping-cart{
+    display: grid;
+    /* Se divide en cuato grids para que quede imagen, texto, espacio en blanco y precio */
+    grid-template-columns: auto 1fr auto auto;
+    gap: 16px;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.shopping-cart figure{
+    margin: 0;
+}
+
+.shopping-cart figure img{
+    width: 78px;
+    height: 78px;
+    border-radius: 20px;
+    /* para que la imagen no se distorsione */
+    object-fit: cover;
+}
+
+.shopping-cart p:nth-child(2){
+    color: var(--very-ligth-pink);
+}
+
+.shopping-cart p:nth-child(3){
+    font-size: var(--md);
+    font-weight: bold;
+}
+
+.order{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: center;
+    background-color: var(--text-input-field);
+    margin-bottom: 24px;
+    border-radius: 8px;
+    padding: 0 24px;
+}
+
+.order p:nth-child(1){
+    /* Se crea un flexbox en el primer pedazo de la grilla para poder poner verticales los textos */
+    display: flex;
+    flex-direction: column;
+}
+
+.order p span:nth-child(1){
+    font-size: var(--md);
+    font-weight: bold;
+}
+
+.order p:nth-child(2){
+    /* para que el texto se vaya al fondo del grid */
+    text-align: end;
+    font-weight: bold;
+}
+
+.primary-button{
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    width: 100%;
+    height: 50px;
+    /* Se pone para que cuando se ponga el mouse encima salga una manito */
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+}
 
 @media (max-width: 640px){
     .menu {
