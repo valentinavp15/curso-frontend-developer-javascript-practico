@@ -1,8 +1,3 @@
-"editor.tokenColorCustomizations": {
-    "[Monokai]"{  
-        "comments": "#d4922f"}
-},
-
 /* Estilos generales */
 :root{
     /* Se crean variables para los colores */
@@ -204,7 +199,7 @@ nav{
 /* Aside (product detail y carrio) */
 .product-detail{
     width: 360px;
-    padding: 24px;
+    padding: 0 24px;
     /* Para poner todo centrado */
     box-sizing: border-box;
     /* Para poner todo a la derecha en el contenedor total */
