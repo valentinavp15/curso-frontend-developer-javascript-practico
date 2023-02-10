@@ -151,6 +151,7 @@ nav{
 
 /* Mobile menu */
 .mobile-menu{
+    background-color: var(--white);
     position: absolute;
     top: 60px;
     padding: 24px;
@@ -198,6 +199,7 @@ nav{
 
 /* Aside (product detail y carrio) */
 .product-detail{
+    background-color: var(--white);
     width: 360px;
     padding: 0 24px;
     /* Para poner todo centrado */
