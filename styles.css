@@ -301,6 +301,65 @@ nav{
     font-weight: bold;
 }
 
+/* Product list */
+
+.cards-container{
+    display: grid;
+    /* Se pone la cantidad de columnas que queremos y el tamaño */
+    grid-template-columns:repeat(auto-fill, 240px);
+    /* Espacio entre cards */
+    gap: 26px;
+    /* Alinear la grilla completamente en el centro  */
+    place-content: center;
+    margin-top: 48px;
+}
+
+.product-card{
+    width: 240px;
+}
+
+.product-card img{
+    width: 240px;
+    height: 240px;
+    border-radius: 20px;
+    /* para que la imagen no se distorsione */
+    object-fit: cover;
+}
+.product-info{
+    display: flex;
+    /* Alinear forma horizontal */
+    justify-content: space-between;
+    /* Alinear forma vertical */
+    align-items: center;
+    margin-top: 12px;
+}
+
+.product-info figure{
+    margin: 0;
+}
+
+
+.product-info figure img{
+    width: 35px;
+    height: 35px;
+}
+
+/* El primer parrafo (nthchild) dentro del div  */
+.product-info div p:nth-child(1){
+    font-weight: bold;
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+/* El segundo parrafo (nthchild) dentro del div  */
+.product-info div p:nth-child(2){
+    font-size: var(--sm);
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--very-ligth-pink);
+}
+
+
 @media (max-width: 640px){
     .menu {
         display: block;
@@ -308,6 +367,24 @@ nav{
 
     .nav-left ul, .nav-email, .desktop-menu {
         display: none;
+    }
+
+    .cards-container{
+        /* Se pone la cantidad de columnas que queremos y el tamaño */
+        grid-template-columns:repeat(2, 140px);
+        /* Espacio entre cards */
+        gap: 26px;
+        margin: 48px;
+    }
+    
+    .product-card{
+        width: 140px;
+    }
+    
+    
+    .product-card img{
+        width: 140px;
+        height: 140px;
     }
     
 }

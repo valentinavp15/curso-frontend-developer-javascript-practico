@@ -48,3 +48,48 @@ function toggleCarritoAside(){
 
     aside.classList.toggle('inactive')
 }
+
+const productList = [];
+productList.push({
+    name: 'bike',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+});
+productList.push({
+    name: 'bike',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+});
+productList.push({
+    name: 'bike',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+});
+
+// for product of me entrega cada elemento del array con nombre, for product in me entrega el indice de cada elemento del array
+
+       
+// <!-- <div class="cards-container"> 
+// <div class="product-card">
+//     <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" class="product-img">
+//     <div class="product-info">
+//         <div>
+//             <p>$120,00</p>
+//             <p>Bike</p>                        
+//         </div>
+        
+//         <figure>
+//             <img src="./Icons/bt_add_to_cart.svg" alt="">
+//         </figure>
+//     </div>
+// </div>
+// </div> -->
+
+for (product of productList){
+    const productCard = document.createElement('div');
+    productCard.classList.add('product-card');
+
+    const img = document.createElement('img');
+    // product ={name, price, image}
+    img.setAttribute('src', product.image);
+}
