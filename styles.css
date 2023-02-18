@@ -154,7 +154,10 @@ nav{
     background-color: var(--white);
     position: absolute;
     top: 60px;
+    left: 0;
+    width: 100%;
     padding: 24px;
+
 }
 
 .mobile-menu ul{
@@ -198,15 +201,20 @@ nav{
 }
 
 /* Aside (product detail y carrio) */
-.product-detail{
+aside{
     background-color: var(--white);
     width: 360px;
-    padding: 0 24px;
     /* Para poner todo centrado */
     box-sizing: border-box;
     /* Para poner todo a la derecha en el contenedor total */
     position: absolute;
     right: 0;
+}
+
+/* Shopping cart */
+
+.shopping-cart-container{
+    padding: 0 24px;
 }
 
 .title-container{
@@ -325,7 +333,7 @@ nav{
     /* para que la imagen no se distorsione */
     object-fit: cover;
 }
-.product-info{
+.product-card .product-info{
     display: flex;
     /* Alinear forma horizontal */
     justify-content: space-between;
@@ -334,29 +342,99 @@ nav{
     margin-top: 12px;
 }
 
-.product-info figure{
+.product-card .product-info figure{
     margin: 0;
 }
 
-
-.product-info figure img{
+.product-card .product-info figure img{
     width: 35px;
     height: 35px;
 }
 
 /* El primer parrafo (nthchild) dentro del div  */
-.product-info div p:nth-child(1){
+.product-card .product-info div p:nth-child(1){
     font-weight: bold;
     font-size: var(--md);
     margin-top: 0;
     margin-bottom: 4px;
 }
 /* El segundo parrafo (nthchild) dentro del div  */
-.product-info div p:nth-child(2){
+.product-card .product-info div p:nth-child(2){
     font-size: var(--sm);
     margin-top: 0;
     margin-bottom: 0;
     color: var(--very-ligth-pink);
+}
+
+
+/* Product detail */
+.product-close{
+background: var(--white);
+width: 14px;
+height: 14px;
+position: absolute;
+top: 24px;
+left: 24px;
+z-index: 2;
+padding: 12px;
+border-radius: 50%;
+}
+
+.product-close:hover{
+cursor: pointer;
+}
+
+#product-detail .product-info{
+margin-left: 12px;
+margin-right: 12px;
+}
+
+#product-detail .product-info p:nth-child(1){
+font-weight: bold;
+font-size: var(--md);
+margin-top: 0;
+margin-bottom: 4px;
+}
+
+#product-detail .product-info p:nth-child(2){
+color: var(--very-ligth-pink);
+font-size: var(--md);
+margin-top: 0;
+margin-bottom: 36px;
+}
+
+#product-detail .product-info p:nth-child(3){
+color: var(--very-ligth-pink);
+font-size: var(--sm);
+margin-top: 0;
+margin-bottom: 36px;
+}
+
+
+#product-detail > img:nth-child(2){
+width: 100%;
+height: 360px;
+object-fit: cover;
+border-radius: 0 0 20px 20px;
+}
+
+.primary-button{
+background-color: var(--hospital-green);
+border-radius: 8px;
+border: none;
+color: var(--white);
+width: 100%;
+height: 50px;
+/* Se pone para que cuando se ponga el mouse encima salga una manito */
+cursor: pointer;
+font-size: var(--md);
+font-weight: bold;
+}
+
+.addtc-button{
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 
@@ -386,7 +464,7 @@ nav{
         width: 140px;
         height: 140px;
     }
-    
+
 }
 
 @media (min-width: 641px){
