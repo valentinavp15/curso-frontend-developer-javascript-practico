@@ -2,9 +2,11 @@
 const navEmail = document.querySelector('.nav-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const menuCarritoIcon = document.querySelector('.nav-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-close')
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoping-cart-container');
+const productDetailContainer = document.querySelector('#product-detail');
 const cardsContainer = document.querySelector('.cards-container');
 
 // Toggle significa intencambiar
@@ -12,6 +14,7 @@ const cardsContainer = document.querySelector('.cards-container');
 navEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu(){
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
@@ -34,20 +37,42 @@ function toggleMobileMenu(){
         shoppingCartContainer.classList.add('inactive');
     }
 
+    closeProductDetailAside();
+
     mobileMenu.classList.toggle('inactive');
 }
 
 function toggleCarritoAside(){
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
 
     // Si tengo el menu mobile abierto y deseo abrir el aside, el condicional permite que se cierre automaticamente el menu mobile 
 
     if(!isMobileMenuClosed) {
         mobileMenu.classList.add('inactive');
+
+    }
+
+    // Si tengo el product detail abierto y deseo abrir el shopping cart, el condicional permite que se cierre automaticamente el product detail
+ 
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+
+    if(!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive');
     }
 
     shoppingCartContainer.classList.toggle('inactive')
+
+
+}
+
+function openProductDetailAside(){
+    shoppingCartContainer.classList.add('inactive');
+
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -96,6 +121,8 @@ function renderProducts(arr){
         const productImg = document.createElement('img');
         // product ={name, price, image}
         productImg.setAttribute('src', product.image);
+        // Para hacer un addeventlistener NO se ponen los dos parentesis de la funcion (genera error)
+        productImg.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
