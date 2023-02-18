@@ -5,6 +5,7 @@ const menuCarritoIcon = document.querySelector('.nav-shopping-cart');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const aside = document.querySelector('.product-detail');
+const cardsContainer = document.querySelector('.cards-container');
 
 // Toggle significa intencambiar
 // Llama a la función que dentro ejecuta otra funcion classlist.toggle que quita lo quie sea que tenga la clase inactive cuando se haga el event listener
@@ -69,8 +70,8 @@ productList.push({
 // for product of me entrega cada elemento del array con nombre, for product in me entrega el indice de cada elemento del array
 
        
-// <!-- <div class="cards-container"> 
-// <div class="product-card">
+// <div class="cards-container"> 
+//  <div class="product-card">
 //     <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" class="product-img">
 //     <div class="product-info">
 //         <div>
@@ -83,13 +84,50 @@ productList.push({
 //         </figure>
 //     </div>
 // </div>
-// </div> -->
+// </div> 
 
-for (product of productList){
-    const productCard = document.createElement('div');
-    productCard.classList.add('product-card');
+// Voy a crear el codigo html que había realizado en otras clases (el que esta encima) de paso a paso con javascript
 
-    const img = document.createElement('img');
-    // product ={name, price, image}
-    img.setAttribute('src', product.image);
+function renderProducts(arr){
+    for (product of arr){
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+    
+        const productImg = document.createElement('img');
+        // product ={name, price, image}
+        productImg.setAttribute('src', product.image);
+    
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info');
+    
+        const productInfoDiv = document.createElement('div');
+    
+        const productPrice = document.createElement('p');
+        // product ={name, price, image}
+        productPrice.innerText = '$' + product.price;
+        const productName = document.createElement('p');
+        // product ={name, price, image}
+        productName.innerText = '$' + product.name;
+    
+        const productInfoFigure = document.createElement('figure');
+        const productImgCart = document.createElement('img');
+        productImgCart.setAttribute('src','./icons/bt_add_to_cart.svg');
+    
+        // Acá se va a meter cada cosa donde debe ir habiendo creado todas las etiquetas
+    
+        productInfoFigure.appendChild(productImgCart);
+    
+        productInfoDiv.appendChild(productPrice);
+        productInfoDiv.appendChild(productName);
+    
+        productInfo.appendChild(productInfoDiv);
+        productInfo.appendChild(productInfoFigure);
+    
+        productCard.appendChild(productImg);
+        productCard.appendChild(productInfo);
+    
+        cardsContainer.appendChild(productCard)
+    }
 }
+
+renderProducts(productList);
